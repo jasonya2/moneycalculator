@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>組數與金額計算機</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      max-width: 400px;
+    }
+
+    label {
+      flex: 1;
+      font-size: 1.1em;
+    }
+
+    input[type="number"] {
+      width: 100px;
+      font-size: 1em;
+      padding: 5px;
+    }
+
+    button {
+      font-size: 1.2em;
+      margin-top: 15px;
+      padding: 8px 20px;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>組數與金額計算機</h2>
+
+  <div class="form-group">
+    <label>100 有幾組（20枚/組）：</label>
+    <input type="number" id="aa" value="0">
+  </div>
+  <div class="form-group">
+    <label>50 有幾組（10枚/組）：</label>
+    <input type="number" id="bb" value="0">
+  </div>
+  <div class="form-group">
+    <label>10 有幾組（10枚/組）：</label>
+    <input type="number" id="cc" value="0">
+  </div>
+  <div class="form-group">
+    <label>1 有幾組（10枚/組）：</label>
+    <input type="number" id="dd" value="0">
+  </div>
+  <div class="form-group">
+    <label>1000 有幾張：</label>
+    <input type="number" id="a" value="0">
+  </div>
+  <div class="form-group">
+    <label>500 有幾張：</label>
+    <input type="number" id="b" value="0">
+  </div>
+  <div class="form-group">
+    <label>100 有幾張：</label>
+    <input type="number" id="c" value="0">
+  </div>
+  <div class="form-group">
+    <label>50 有幾枚：</label>
+    <input type="number" id="d" value="0">
+  </div>
+  <div class="form-group">
+    <label>10 有幾枚：</label>
+    <input type="number" id="e" value="0">
+  </div>
+  <div class="form-group">
+    <label>1 有幾枚：</label>
+    <input type="number" id="f" value="0">
+  </div>
+  <div class="form-group">
+    <label>現金：</label>
+    <input type="number" id="cash" value="0">
+  </div>
+
+  <button onclick="calculate()">計算總金額</button>
+
+  <div class="result" id="result">零用金：0 元</div>
+
+  <script>
+    function calculate() {
+      const aa = parseInt(document.getElementById("aa").value) || 0;
+      const bb = parseInt(document.getElementById("bb").value) || 0;
+      const cc = parseInt(document.getElementById("cc").value) || 0;
+      const dd = parseInt(document.getElementById("dd").value) || 0;
+      const a  = parseInt(document.getElementById("a").value)  || 0;
+      const b  = parseInt(document.getElementById("b").value)  || 0;
+      const c  = parseInt(document.getElementById("c").value)  || 0;
+      const d  = parseInt(document.getElementById("d").value)  || 0;
+      const e  = parseInt(document.getElementById("e").value)  || 0;
+      const f  = parseInt(document.getElementById("f").value)  || 0;
+	  const cash  = parseInt(document.getElementById("cash").value)  || 0;
+
+
+      const total = (100*20*aa) + (50*10*bb) + (10*10*cc) + (1*10*dd) +
+                    (1000*a) + (500*b) + (100*c) + (50*d) + (10*e) + (1*f)-cash;
+
+      document.getElementById("result").innerText = "零用金：" + total + " 元";
+    }
+  </script>
+</body>
+</html>
